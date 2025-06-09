@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# 1. Comment configurer la documentation-as-code
+# 1. Comment configurer la documentation-as-code avec Docusaurus
 La documentation-as-code est un excellent moyen de publier les modifications apportées sur votre machine locale vers votre site de documentation en ligne. Pour y parvenir, vous avez besoin d'un IDE, d'un générateur de site statique, d'un dépôt Git, de CI/CD pour configurer les workflows, et d'une plateforme d'hébergement.
 
 ## Pourquoi les rédacteurs techniques utilisent-ils la documentation-as-code ?
