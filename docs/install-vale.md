@@ -74,3 +74,17 @@ docs\intro.md
  6:156  suggestion  Try to keep sentences short (<  Microsoft.SentenceLength
                     30 words).
 ```
+
+## Inclure le lint dans le pipeline de CI
+
+Ajouter une étape avant le déploiement du site
+
+```yml
+# Step 3: Run Vale lint checks.
+- name: Vale Lint
+  uses: errata-ai/vale-action@reviewdog
+  with:
+    files: .
+  env:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
