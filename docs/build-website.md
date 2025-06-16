@@ -4,10 +4,11 @@ sidebar_position: 3
 
 # 3. Construire le site statique
 
-`npm run build`
+La construction du site statique en local vous permet de vérifier que tout est opérationnel avant la publication en ligne.
 
-Le site est généré dans le dossier `build`
+Vous pouvez également le déployer sur un serveur interne à partir du résultat du build.
 
-`npm run serve`
+Suite à la commande : `npm run build`, le site est généré dans le dossier `build`
 
-Pour lancer le server en mode "release"
+La commande `npm run serve`, permet de le site en mode "release" sur votre localhost
+

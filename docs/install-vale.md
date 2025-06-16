@@ -11,7 +11,9 @@ Vale utilise le guide de style Vale lors de la révision pour repérer les erreu
 
 ## Installation avec WinGet
 
-`winget install errata-ai.Vale`
+```bash
+winget install errata-ai.Vale
+```
 
 ## Récupérer la définition des styles
 
@@ -33,7 +35,7 @@ Créer un fichier `.vale.ini` à la racide de votre projet afin de  configurer l
 
 Puis ajouter le code suivant dans le fichier
 
-```
+```ini
 StylesPath = styles
 
 MinAlertLevel = suggestion
@@ -52,11 +54,13 @@ BasedOnStyles = Vale, Microsoft
 
 Executer la commande suivante dans le terminal
 
-`vale intro.md`
+```bash
+vale intro.md
+```
 
-Exemple de sortie 
+Exemple de sortie :
 
-```shell
+```bash
 docs\intro.md
  5:3    warning     Don't use end punctuation in    Microsoft.HeadingPunctuation
                     headings.
