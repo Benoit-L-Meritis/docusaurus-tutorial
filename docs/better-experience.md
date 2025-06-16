@@ -41,7 +41,7 @@ const config: Config = {
 
 **Mermaid** permet d'intégrer des visualisations dans la documentation.
 
-https://mermaid.js.org/
+[https://mermaid.js.org/](https://mermaid.js.org/)
 
 Il s'intègre naturellement dans les fichiers Markdown (GitHub, GitLab, Docusaurus, etc.) pour enrichir la documentation
 avec des éléments visuels maintenables en code, évitant les images statiques difficiles à mettre à jour.
@@ -66,6 +66,7 @@ Dans la section `themeConfig`, ajouter une entrée pour Mermaid
 ```
 
 Vous pouvez, si vous le souhaitez, ajouter des options de style pour les rendus des diagrammes.
+
 ```typescript
 themeConfig: {
   mermaid: {
@@ -86,5 +87,15 @@ themeConfig: {
 
 Pour une meilleure expérience de développement, les extensions suivantes sont intéressantes à ajouter à votre projet.
 
-TODO
-extension VS CODE
+- **markdownlint**
+  - `davidanson.vscode-markdownlint`
+  - Un linter qui vous aidera à rédiger des fichiers Markdown respectant les standard et garantir ainsi le rendu
+- **Spell Right**
+  - `ban.spellright`
+  - Une extension qui vous permet de vérifier l'orthographe dans vos fichiers MD
+- **Mermaid Preview**
+  - `vstirbu.vscode-mermaid-preview`
+  - Un outil d'aide à la visualisation et l'aperçu des diagrammes réalisés avec Mermaid
+- **Marp for VS Code**
+  - `marp-team.marp-vscode`
+  - Un outil qui permet de transformer vos fichiers MD en diaporama

@@ -1,0 +1,26 @@
+{
+    // Enable Spell Right
+    "spellright.enabled": true,
+    "spellright.notificationClass": "warning",
+    
+    // Set the default language(s)
+    "spellright.language": [
+        "fr"
+    ],
+  
+    // Enable spell checking for Markdown and plaintext files
+    "spellright.documentTypes": [
+        "markdown",
+        "plaintext"
+    ],
+  
+    // Ignore words in ALL CAPS (useful for acronyms)
+    "spellright.ignoreUpperCase": true,
+  
+    // Ignore camelCase words (useful for code)
+    "spellright.ignoreCamelCase": true,
+  
+    // Add custom words to your user dictionary
+    "spellright.userDictionary": [
+    ]
+  }  

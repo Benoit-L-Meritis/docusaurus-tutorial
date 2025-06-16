@@ -8,7 +8,6 @@ Vale est un outil de vérification de style et de grammaire personnalisable. Cel
 
 Vale utilise le guide de style Vale lors de la révision pour repérer les erreurs et faire des suggestions. Mais vous pouvez y ajouter le guide de style de votre entreprise ou tout autre guide de style si vous le préférez. Il existe des guides de style publics que vous pouvez utiliser comme le guide de style Google, le guide de style Microsoft, et ainsi de suite. Pour ce tutoriel, nous utiliserons le guide de style Microsoft.
 
-
 ## Installation avec WinGet
 
 ```bash
@@ -17,7 +16,7 @@ winget install errata-ai.Vale
 
 ## Récupérer la définition des styles
 
-Par exemple pour Microsoft : https://github.com/errata-ai/Microsoft/releases/download/v0.7.0/Microsoft.zip
+Par exemple pour Microsoft : [https://github.com/errata-ai/Microsoft/releases/download/v0.7.0/Microsoft.zip](https://github.com/errata-ai/Microsoft/releases/download/v0.7.0/Microsoft.zip)
 
 Puis déziper le contenu dans
 
@@ -50,7 +49,7 @@ BasedOnStyles = Vale, Microsoft
 - `[*.md]` : Parser uniquement les fichier Markdown
 - `BasedOnStyles`: Liste des styles à utiliser
 
-## Parser un fichier 
+## Parser un fichier
 
 Executer la commande suivante dans le terminal
 

@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+      "vstirbu.vscode-mermaid-preview",     // Aperçu Mermaid dédié
+      "davidanson.vscode-markdownlint",     // Lint Markdown
+      "ban.spellright",                     // Correcteur orthographique multilingue
+      "marp-team.marp-vscode"               // Slideshow
+    ],
+    "unwantedRecommendations": [
+      // Ajoute ici les extensions à éviter si besoin
+    ]
+  }

@@ -11,6 +11,7 @@ Configurer les paramètres du compte GitHub et du projet dans le fichier `docusa
 Mettre en place le script YAML pour configurer l'action GitHub
 
 Voir le fichier
-```
+
+```text
 .github\workflows\deploy.yml
 ```

@@ -14,7 +14,7 @@ Pour les commentaires sur les contacts, le fonctionnement attendu est décrit da
 
 ### Modèle de base de données
 
-```mermaid 
+```mermaid
 ---
 title: MCD - Gestion des commentaires
 ---
@@ -39,6 +39,7 @@ erDiagram
 Nous avons fait en sorte de rester dans un design proche du design des tables du CRM dynamics.
 
 Explications sur le schéma :
+
 - `CommentId` sera la clé primaire
 - `CommentText` contiendra le contenu HTML du commentaire
 - Chaque commentaire sera relié à une entité métier via `EntityId` que l'on pourra retrouver via son `Code`
@@ -61,7 +62,7 @@ WHERE
 
 <br/>
 
-Nous proposons de remonter les informations de l'auteur via l'appel de la route 
+Nous proposons de remonter les informations de l'auteur via l'appel de la route
 `/api/{culture}/system-users/system-user/simplified/{user-id}`
 afin de récupérer le nom et l'image de l'auteur.
 Même principe que pour les auteurs de l'historique des modifications.
@@ -70,7 +71,6 @@ Même principe que pour les auteurs de l'historique des modifications.
 
 Le système de notification de lecture sur les commentaires, prévu plus tard, pourra venir se greffer sur ce modèle en ajoutant une 
 table permettant de déterminer pour chaque utilisateur le fait que le commentaire a été lu ou non.
-
 
 ### Routes d'API envisagées
 
@@ -84,6 +84,7 @@ Pour que le système soit générique, nous proposons une route unique pour la r
 - `object-id` : GUID de l'entité pour laquelle on veut récupérer les commentaires
 
 Format de la réponse
+
 ```json
 {
     comments: [
@@ -103,11 +104,13 @@ Format de la réponse
 
 Dans les cas spécifiques où l'entité avient déja des commentaires sur le CRM, ils seront ajoutés dans la propriété `crmComment`
 sous la forme d'une chaîne de caractères.
+
 <br/>
+
 Ce commentaire spécifique sera affiché en lecture seule via l'interface du BO.
 
-
 <br/>
+
 Nous ne pensons pas qu'il soit nécessaire de mettre en place de la pagination, le volume des commentaires pour une même entité
 sera très probablement faible.
 
@@ -116,6 +119,7 @@ sera très probablement faible.
 `POST /api/{culture}/comments/comment/`
 
 avec un body
+
 ```json
 {
     entityCode: "CONTACT",
@@ -124,7 +128,7 @@ avec un body
 }
 ```
 
-L'auteur sera l'utilisateur courant et récupéré automatiquement par le back 
+L'auteur sera l'utilisateur courant et récupéré automatiquement par le back
 via l'intercepteur en faisant hériter l'entité commentaire de IAuditableEntity
 
 #### Modification
@@ -132,12 +136,14 @@ via l'intercepteur en faisant hériter l'entité commentaire de IAuditableEntity
 `PUT /api/{culture}/comments/comment/`
 
 avec un body
+
 ```json
 {
     commentId: "guid",
     commentText: "string"
 }
 ```
+
 Le modifiedBy devrait être mis à jour automatiquement par l'intercepteur de BD.
 
 Seul l'auteur du commentaire pourra le modifier (le gérer par un Guard ?)
@@ -148,18 +154,15 @@ Seul l'auteur du commentaire pourra le modifier (le gérer par un Guard ?)
 
 Seul l'auteur du commentaire pourra le supprimer (le gérer par un Guard ?)
 
-
 ### Idées pour l'implémentation du code back
 
 - Un controller et un service dédiés aux commentaires seront à mettre en place.
-    - Quels droits mettre sur les routes du controller ?
+  - Quels droits mettre sur les routes du controller ?
 - On peut utiliser le CRUD pattern et les Commands pour le service.
 - Nouveau domain "Comments" avec une `CommentEntity : AuditableEntity, IEntity`
-    - Mettre en place les guards sur l'entity lors du travail sur l'ajout/modification
+  - Mettre en place les guards sur l'entity lors du travail sur l'ajout/modification
 - Un repository avec le CRUD pattern
 
-
-
 ## Décision
-**A prendre à l'issu de la revue de conception**
 
+> A prendre à l'issu de la revue de conception

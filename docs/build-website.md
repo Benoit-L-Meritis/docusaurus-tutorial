@@ -11,4 +11,3 @@ Vous pouvez également le déployer sur un serveur interne à partir du résulta
 Suite à la commande : `npm run build`, le site est généré dans le dossier `build`
 
 La commande `npm run serve`, permet de le site en mode "release" sur votre localhost
-
