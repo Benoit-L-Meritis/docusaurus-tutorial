@@ -30,7 +30,7 @@ Le tableau suivant présente l’intérêt de chacun de ces éléments à la foi
 
 Un exemple d'ADR est disponible [ici](1_exemple_simple.md) pour illustrer.
 
-##  Utilisation dans un projet logiciel
+## Utilisation dans un projet logiciel
 
 - Pour chaque décision, ajouter un nouveau fichier dans le répertoire `..\architecture-decision-records` avec le nom au format `AAAAMMJJ_sujet.md` en utilisant le template fourni `template.md`
 - La décision est initiée sur une feature et partagée avec les autres membres de l'équipe au travers d'une MR pour discussion

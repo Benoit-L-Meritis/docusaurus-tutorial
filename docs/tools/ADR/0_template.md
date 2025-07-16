@@ -1,5 +1,8 @@
-# Template ADR
+# Modèle ADR
 
+Modèle d'ADR en Markdown
+
+```md
 # Titre
 
 - Date : AAAA/MM/JJ
@@ -32,3 +35,4 @@ Décision comprise et partagée par l'ensemble de l'équipe
 ## Conséquence
 
 Décrire l'impact sur l'architecture, le code et les pratiques de l'équipe
+```

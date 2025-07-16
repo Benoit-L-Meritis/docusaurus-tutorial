@@ -10,8 +10,73 @@ Configurer les paramètres du compte GitHub et du projet dans le fichier `docusa
 
 Mettre en place le script YAML pour configurer l'action GitHub
 
-Voir le fichier
+```yaml
+name: Deploy Docusaurus to GitHub Pages
 
-```text
-.github\workflows\deploy.yml
+on:
+  # Déclenche le déploiement sur push vers main
+  push:
+    branches: [ sunny-1 ]
+  
+  # Permet de déclencher manuellement depuis l'interface GitHub
+  workflow_dispatch:
+
+# Définit les permissions nécessaires pour le déploiement
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Empêche les déploiements concurrents
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Nécessaire pour le versioning
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      # Step 3: Run Vale lint checks.
+      - name: Vale Lint
+        uses: errata-ai/vale-action@reviewdog
+        with:
+          files: .
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Docusaurus
+        run: npm run build
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
 ```
